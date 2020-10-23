@@ -258,7 +258,7 @@ void processFile(char *filename) {
 
 	// to check if the directory was correctly made	
 	int status;	
-	status = mkdir(directoryName, 750);		
+	status = mkdir(directoryName, 0750);		
 	if(status != 0) {
 		printf("there was a problem making directoriies to: %s\n", directoryName);
 		return;
