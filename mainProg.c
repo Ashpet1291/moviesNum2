@@ -225,8 +225,9 @@ void processFile(char *filename) {
     
     char directoryName[50];
     char directoryName2[50];
+    int randNum;
 		
-	int randNum = generateRandNum();
+	randNum = generateRandNum();
 		
 	sprintf(directoryName, "pettiboa.movies.%d", randNum);
 		
@@ -257,16 +258,16 @@ void processFile(char *filename) {
 
 	// to check if the directory was correctly made	
 	int status;	
-	status = mkdir(directoryName);		
+	status = mkdir(directoryName, 750);		
 	if(status != 0) {
 		printf("there was a problem making directoriies to: %s\n", directoryName);
 		return;
 	}
     
-//    permissions for directory
-    if(chmod(directoryName, 750) == -1) {
-    	printf("There was an error changing permissions");
-	}
+////    permissions for directory
+//    if(chmod(directoryName, 750) == -1) {
+//    	printf("There was an error changing permissions");
+//	}
 
 	int g;
 	int kr;
