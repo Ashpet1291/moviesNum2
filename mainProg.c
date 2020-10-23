@@ -16,12 +16,6 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include <windows.h>
-#include <errno.h>
-#include <fcntl.h>
-
-#define S_IRGRP 00040
-#define S_IXGRP 00010
 
 #define PREFIX "movies_"
 #define ENDING ".csv"
