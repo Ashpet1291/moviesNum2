@@ -168,7 +168,7 @@ void processFile(char *filename) {
 	struct movie *list = parseData(filename);  
 	
 	int tempMovieSize = 0;	
-	int maxStringSize = 40;
+	int maxStringSize = 50;
 	// arrays to copy movie list into
 	int listYears[movieCount];
 	char titleList[movieCount][maxStringSize];
@@ -196,22 +196,16 @@ void processFile(char *filename) {
 	int k;
 	
 	// this gets rid of doubles in the year list, so there is only one entry per year,	
-	for (i = 0; i<tempMovieSize; i++) 
-	{
-		for(j=i+1; j<tempMovieSize; j++) 
-		{
-			if(listYears[i] == listYears[j]) 
-			{
-				 for(k=j; k < tempMovieSize; k++)
-                {
+	for (i = 0; i<tempMovieSize; i++) {
+		for(j=i+1; j<tempMovieSize; j++) {
+			if(listYears[i] == listYears[j]) {
+				 for(k=j; k < tempMovieSize; k++) {
                     listYears[k] = listYears[k + 1];
                 }             
-                tempMovieSize--;
-                
+                tempMovieSize--;               
                 j--;
 			}
-		}
-		
+		}		
 	}
    
     
@@ -246,7 +240,11 @@ void processFile(char *filename) {
     char *newline = malloc(20);
     char fullDirPath[100];
 		
+	int temp = 0;
 		
+	for(int k =0; k<sizeof(listYears);k++) {
+		printf("this is list years %s\n", listYears[k]);
+	}
 	// write year files in created directory	
 	for(g=0; g<tempMovieSize; g++)
     {    	    	
@@ -260,18 +258,22 @@ void processFile(char *filename) {
 		//    permissions for directory
     	if(chmod(fullDirPath, 0640) == -1) {
     		printf("There was an error changing permissions");
-	} 
+		} 
 		
-		// loop to make year text files
-		for(kr = 0; kr<movieCount; kr++) {
+		while(temp < tempMovieList) {
+			// loop to make year text files
+			for(kr = 0; kr<movieCount; kr++) {
+			
+			// puts titles in files // puts titles in fptr file
 			fputs(titleList[kr], fptr);
-		
-		// print error message if can't create a new file
-		if(fptr == NULL) { 
-			printf("Error creating file\n"); 
-		exit(-1); 
-		}
-	} 
+			
+			}
+			// print error message if can't create a new file
+			if(fptr == NULL) { 
+				printf("Error creating file\n"); 
+			exit(-1); 
+			}
+		} 
 	fclose(fptr);
 		 	
 	}
@@ -315,8 +317,8 @@ void findLargestFile() {
  //  }
 	// Close the directory
 	closedir(currDir);
-	printf("Now processing the chosen file named for %s \n", entryName);
-//	processFile(entryName);
+	printf("Now processing the chosen file named %s \n", entryName);
+	processFile(entryName);
 
 }
 
@@ -332,7 +334,7 @@ void findSmallestFile() {
     off_t st_size;
     struct stat dirStat;
     char entryName[256];
-    int size=800000;
+    int size=8000000;
 
 	  
     // while reading the current directory
@@ -357,10 +359,9 @@ void findSmallestFile() {
 	// Close the directory
 	closedir(currDir);
 //	printf("The largest file/directory starting with the prefix \"%s\" in the current directory is %s\n", PREFIX, entryName);
-	printf("Now processing the chosen file named for %s", entryName);
+	printf("Now processing the chosen file named %s", entryName);
 	printf("\n");
-	processFile(entryName);
-	
+	processFile(entryName);	
 }
 
 /*
@@ -382,7 +383,7 @@ void findFile() {
     	fclose(userFile);
    		
     	if (parseData(userChoice) != 0) 
-      	printf("Now processing the chosen file named for %s \n", userChoice);
+      	printf("Now processing the chosen file named %s \n", userChoice);
       	
       	processFile(userChoice);
       
