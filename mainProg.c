@@ -189,7 +189,6 @@ void processFile(char *filename) {
 		}		
 	}
 	
-	
 	// variab;es for loops
 	int i;
 	int j;
@@ -207,8 +206,7 @@ void processFile(char *filename) {
 			}
 		}		
 	}
-   
-    
+       
     char directoryName[50];
     char directoryName2[50];
     int randNum;
@@ -257,21 +255,22 @@ void processFile(char *filename) {
     		printf("There was an error changing permissions");
 		} 
 		
-	
 			// loop to make year text files
 			for(kr = 0; kr<movieCount; kr++) {
 			
 			// puts titles in files // puts titles in fptr file
-			fputs(titleList[kr], fptr);
-			
+			fputs(titleList[kr], fptr);			
 			}
 			// print error message if can't create a new file
 			if(fptr == NULL) { 
 				printf("Error creating file\n"); 
 			exit(-1); 
 			} 
-	fclose(fptr);
-		 	
+	fclose(fptr);		 	
+	}
+	
+	for(kr = 0; kr<movieCount; kr++) {
+		printf("%s\n", listYears[k]); 
 	}
 	printf("Created directory with name %s\n", directoryName);
 }
@@ -292,19 +291,6 @@ void findLargestFile() {
     char entryName[256];
     int size =0;
     
-	
-//  		char str[] = "teacher teach tea";
-//	char search[] = "ac";
-//	char *ptr = strstr(str, search);
-//
-//	if (ptr != NULL) /* Substring found */
-//	{
-//		printf("'%s' contains '%s'\n", str, search);
-//	}
-//	else /* Substring not found */
-//	{
-//		printf("'%s' doesn't contain '%s'\n", str, search);
-//	}
 
     // while reading the current directory
     while((aDir = readdir(currDir)) != NULL){
@@ -312,10 +298,7 @@ void findLargestFile() {
     char *point = strstr(aDir->d_name, ENDING);
 	
     if((strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) && (point != NULL)) {
-	
-    	
-//    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
-//		{
+
         // If so, get directoryname for the current entry
         stat(aDir->d_name, &dirStat);  
           
@@ -323,8 +306,7 @@ void findLargestFile() {
          	size = dirStat.st_size;
         	strcpy(entryName, aDir->d_name);
         }
-     	}
-
+    }
   	}
  //  }
 	// Close the directory
@@ -348,12 +330,13 @@ void findSmallestFile() {
     char entryName[256];
     int size=8000000;
 
-	  
+	char *point = strstr(aDir->d_name, ENDING);
+	 
     // while reading the current directory
     while((aDir = readdir(currDir)) != NULL){
 
 	
-    if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) {
+    if((strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) && (point != NULL)) {
     	
 //    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
 //		{
