@@ -240,8 +240,6 @@ void processFile(char *filename) {
     char *newline = malloc(20);
     char fullDirPath[100];
 		
-	int temp = 0;
-		
 	// write year files in created directory	
 	for(g=0; g<tempMovieSize; g++)
     {    	    	
@@ -323,21 +321,21 @@ void findLargestFile() {
 */
 void findSmallestFile() {
 	
+	
 	// open current working directory
 	DIR* currDir = opendir(".");
     struct dirent *aDir;
     off_t st_size;
     struct stat dirStat;
     char entryName[256];
-    int size=8000000;
+    int size=800000;
 
-	char *point = strstr(aDir->d_name, ENDING);
-	 
+	  
     // while reading the current directory
     while((aDir = readdir(currDir)) != NULL){
 
 	
-    if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0)) {
+    if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) {
     	
 //    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
 //		{
@@ -351,13 +349,16 @@ void findSmallestFile() {
      // 	}
 
   	}
-    }
+   }
 	// Close the directory
 	closedir(currDir);
 //	printf("The largest file/directory starting with the prefix \"%s\" in the current directory is %s\n", PREFIX, entryName);
-	printf("Now processing the chosen file named %s", entryName);
+	printf("Now processing the chosen file named for %s", entryName);
 	printf("\n");
-	processFile(entryName);	
+	processFile(entryName);
+	
+
+//	char *point = strstr(aDir->d_name, ENDING);
 }
 
 /*
