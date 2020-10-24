@@ -47,7 +47,7 @@ void listChoicesMain() {
 	printf("\n");
 	printf("%s %s \n", choiceOne, "Select file to process");
 	printf("%s %s \n", choiceTwo, "Exit the program \n");
-	printf("%s", "Enter a choice 1 or 2: ");
+	printf("%s \n", "Enter a choice 1 or 2: ");
 }
 
 
@@ -444,9 +444,7 @@ void listChoicesTwo() {
 */
 void optionActionsMain() {
 	int userChoice;
-	
-	while(userChoice != 2) 
-	{
+
 		listChoicesMain();
 		// get number that user entered
 		// check if input is an integer, and is one of the options given, otherwise gives error message
@@ -464,15 +462,16 @@ void optionActionsMain() {
     
     // if user picks option 1
     if(userChoice == 1) {
+    	printf("\n");
     	listChoicesTwo();
     	printf("\n");
+    	listChoicesMain();
 	}
 	else if(userChoice == 2) {
 		exit(0);
 		printf("\n");
 	}
 
-	}
 }
 
 
@@ -484,12 +483,8 @@ void optionActionsMain() {
 */
 int main(void)
 {
-
-//	parseData(list);
-	
-
-		
-   optionActionsMain();
+	// list the main options for the user to choose from	
+	optionActionsMain();
     
     printf("\n");
 	
