@@ -326,7 +326,6 @@ void findSmallestFile() {
 	closedir(currDir);
 //	printf("The largest file/directory starting with the prefix \"%s\" in the current directory is %s\n", PREFIX, entryName);
 	printf("Now processing the chosen file named for %s", entryName);
-	printf("\n");
 	// process the biggest file
 	processFile(entryName);
 }
@@ -356,9 +355,9 @@ void findFile() {
       	processFile(userChoice);
       
    	} else {
-    	printf("%s was not found. Try again", userChoice);
+    	printf("%s was not found. Try again \n", userChoice);
     	
-    		
+    // couldn't figure out how to call this function in here, after the error, so just listed all of the second menu options		
 	int userChoice;
 	
 	// prints the choices for the second menu option
