@@ -440,7 +440,8 @@ void listChoicesTwo() {
 */
 void optionActionsMain() {
 	int userChoice;
-
+	while(userChoice != 2) 
+	{
 		listChoicesMain();
 		// get number that user entered
 		// check if input is an integer, and is one of the options given, otherwise gives error message
@@ -459,15 +460,15 @@ void optionActionsMain() {
     // if user picks option 1
     if(userChoice == 1) {
     	printf("\n");
-    	listChoicesTwo();
-    //	printf("\n");
-    	listChoicesMain();
+//    	listChoicesTwo();
+//    	printf("\n");
+    
 	}
 	else if(userChoice == 2) {
 		exit(0);
 		printf("\n");
 	}
-
+	}
 }
 
 
