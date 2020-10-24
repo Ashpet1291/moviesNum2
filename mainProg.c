@@ -232,7 +232,7 @@ void processFile(char *filename) {
     		printf("There was an error changing permissions");
 		} 
 			int looper = 0;
-			int hold = 0
+			int hold = 0;
 			while(looper < tempMovieSize) {
 				// loop to make year text files
 				for(kr = 0; kr<movieCount; kr++) {
