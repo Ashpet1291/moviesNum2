@@ -242,9 +242,6 @@ void processFile(char *filename) {
 		
 	int temp = 0;
 		
-//	for(int k =0; k<sizeof(listYears);k++) {
-//		printf("this is list years %s\n", listYears[k]);
-//	}
 	// write year files in created directory	
 	for(g=0; g<tempMovieSize; g++)
     {    	    	
@@ -294,12 +291,28 @@ void findLargestFile() {
     struct stat dirStat;
     char entryName[256];
     int size =0;
+    
 	
-  
+//  		char str[] = "teacher teach tea";
+//	char search[] = "ac";
+//	char *ptr = strstr(str, search);
+//
+//	if (ptr != NULL) /* Substring found */
+//	{
+//		printf("'%s' contains '%s'\n", str, search);
+//	}
+//	else /* Substring not found */
+//	{
+//		printf("'%s' doesn't contain '%s'\n", str, search);
+//	}
+
     // while reading the current directory
     while((aDir = readdir(currDir)) != NULL){
+    
+    char *point = strstr(aDir->d_name, ENDING);
 	
-    if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) {
+    if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) && (point != NULL) {
+	
     	
 //    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
 //		{
