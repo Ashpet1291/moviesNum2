@@ -262,7 +262,7 @@ void processFile(char *filename) {
 			for(kr = 0; kr<movieCount; kr++) {
 			
 			// puts titles in files // puts titles in fptr file
-			fputs(titleList[kr], fptr);
+				fputs(titleList[kr], fptr);
 			
 			}
 			// print error message if can't create a new file
@@ -337,7 +337,7 @@ void findSmallestFile() {
     while((aDir = readdir(currDir)) != NULL){
 
 	
-    if((strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) && (point != NULL)) {
+    if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0)) {
     	
 //    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
 //		{
