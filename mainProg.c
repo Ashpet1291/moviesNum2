@@ -115,9 +115,8 @@ struct movie *parseData(char *filePath)
     {
         // Get a new movie node corresponding to the current line
         struct movie *newNode = createMovie(currLine);
-        
-        movieCount++;
 
+        movieCount++;
         // Is this the first node in the linked list?
         if (head == NULL)
         {
@@ -234,9 +233,11 @@ void processFile(char *filename) {
 		} 
 			// loop to make year text files
 			for(kr = 0; kr<movieCount; kr++) {
-			
+ 
+ 			//	 fprintf(file, "this is a test %d\n", integer); // write to file 
 				// puts titles in files // puts titles in fptr file
-				fputs(titleList[kr], fptr);			
+			//	fputs(titleList[kr], fptr);	
+				fprintf(fptr, "%s\n", titleList[kr]);		
 			}
 			// print error message if can't create a new file
 			if(fptr == NULL) { 
@@ -294,7 +295,6 @@ void findLargestFile() {
 */
 void findSmallestFile() {
 	
-	
 	// open current working directory
 	DIR* currDir = opendir(".");
     struct dirent *aDir;
@@ -302,7 +302,6 @@ void findSmallestFile() {
     struct stat dirStat;
     char entryName[256];
     int size=800000;
-
 	  
     // while reading the current directory
     while((aDir = readdir(currDir)) != NULL){
@@ -317,7 +316,6 @@ void findSmallestFile() {
          	size = dirStat.st_size;
         	strcpy(entryName, aDir->d_name);
         }
-
   	}
     }
 	// Close the directory
@@ -405,10 +403,8 @@ void findFile() {
 	}
 	else {
 		exit(0);
-	}
-    	
+	}   	
     }
-
 }
 
 /*
