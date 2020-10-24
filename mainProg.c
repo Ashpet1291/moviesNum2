@@ -384,17 +384,17 @@ void listChoicesTwo() {
 	
 	int userChoice;
 	
-		// prints the choices for the second menu option
-		printf("Which file you want to process? \n");
-		printf("Enter 1 to pick the largest file \n");
-		printf("Enter 2 to pick the smallest file \n");
-		printf("Enter 3 to specify the name of a file \n\n");
-		printf("Enter a choice from 1 to 3: ");
+	// prints the choices for the second menu option
+	printf("Which file you want to process? \n");
+	printf("Enter 1 to pick the largest file \n");
+	printf("Enter 2 to pick the smallest file \n");
+	printf("Enter 3 to specify the name of a file \n\n");
+	printf("Enter a choice from 1 to 3: ");
 		
-		// get number that user entered
-		// check if input is an integer, and is one of the options given, otherwise gives error message
-		if(scanf("%d", &userChoice) == 1) {
-			if(userChoice > 3) {
+	// get number that user entered
+	// check if input is an integer, and is one of the options given, otherwise gives error message
+	if(scanf("%d", &userChoice) == 1) {
+		if(userChoice > 3) {
         	printf("That is not an integer between 1-3, please Enter a choice from 1 to 3: \n");
         	
         	printf("Which file you want to process? \n");
@@ -460,8 +460,8 @@ void optionActionsMain() {
     // if user picks option 1
     if(userChoice == 1) {
     	printf("\n");
-//    	listChoicesTwo();
-//    	printf("\n");
+    	listChoicesTwo();
+    	printf("\n");
     
 	}
 	else if(userChoice == 2) {
