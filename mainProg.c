@@ -334,8 +334,9 @@ void findSmallestFile() {
     // while reading the current directory
     while((aDir = readdir(currDir)) != NULL){
 
-	
-    if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) {
+	char *point1 = strstr(aDir->d_name, ENDING);
+	 
+    if((strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) && (point1 != NULL)) {
     	
 //    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
 //		{
