@@ -189,6 +189,7 @@ void processFile(char *filename) {
 		}		
 	}
 	
+	
 	// variab;es for loops
 	int i;
 	int j;
@@ -206,7 +207,8 @@ void processFile(char *filename) {
 			}
 		}		
 	}
-       
+   
+    
     char directoryName[50];
     char directoryName2[50];
     int randNum;
@@ -255,19 +257,22 @@ void processFile(char *filename) {
     		printf("There was an error changing permissions");
 		} 
 		
+	
 			// loop to make year text files
 			for(kr = 0; kr<movieCount; kr++) {
 			
 			// puts titles in files // puts titles in fptr file
-			fputs(titleList[kr], fptr);			
+			fputs(titleList[kr], fptr);
+			
 			}
 			// print error message if can't create a new file
 			if(fptr == NULL) { 
 				printf("Error creating file\n"); 
 			exit(-1); 
 			} 
-	fclose(fptr);		 	
-	}
+	fclose(fptr);
+		 	
+ }
 	printf("Created directory with name %s\n", directoryName);
 }
 
@@ -346,7 +351,7 @@ void findSmallestFile() {
      // 	}
 
   	}
-   }
+    }
 	// Close the directory
 	closedir(currDir);
 //	printf("The largest file/directory starting with the prefix \"%s\" in the current directory is %s\n", PREFIX, entryName);
