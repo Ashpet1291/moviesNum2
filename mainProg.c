@@ -233,28 +233,6 @@ void processFile(char *filename) {
 		
 	strcpy(directoryName2, directoryName);
 //	printf("this is dir2 %s\n", directoryName2);
-//char *strcpy(char *dest, const char *src)
-		
-//	S_IRWXU
-//   read, write, execute/search by owner
-
-//   S_IRGRP
-//   read permission, group
-	
-//	S_IXGRP
-//	execute/search permission, group
-
-
-//	 DIR* currDir = opendir(".");
-//  struct dirent *aDir;
-//
-//  // Go through all the entries
-//  while((aDir = readdir(currDir)) != NULL){
-//    printf("%s  %lu\n", aDir->d_name, aDir->d_ino);    
-//  }
-//  // Close the directory
-//  closedir(currDir);
-
 
 	// to check if the directory was correctly made	
 	int status;	
@@ -263,33 +241,27 @@ void processFile(char *filename) {
 		printf("there was a problem making directoriies to: %s\n", directoryName);
 		return;
 	}
-    
-////    permissions for directory
-//    if(chmod(directoryName, 750) == -1) {
-//    	printf("There was an error changing permissions");
-//	}
 
 	int g;
 	int kr;
 	
 	//	char newDir[] = "/";
-		char line2[] = "/";
+	char line2[] = "/";
 //		strcat(newDir, directoryName2);
-		strcat(directoryName2, line2);
+	strcat(directoryName2, line2);
 		
 		
-		printf("%s \n", directoryName2);
-		char *str = malloc(10);
-    	char *string = malloc(10);
-    	char s1[] = ".txt";
-    	char *newline = malloc(20);
-    	char fullDirPath[100];
+	printf("%s \n", directoryName2);
+	char *str = malloc(10);
+    char *string = malloc(10);
+    char s1[] = ".txt";
+    char *newline = malloc(20);
+    char fullDirPath[100];
 		
 		
 	// write year files in created directory	
 	for(g=0; g<tempMovieSize; g++)
-    {    	
-    	
+    {    	    	
 		sprintf(str,"%d", listYears[g]);
 
 		strcat(str, s1);
@@ -297,7 +269,11 @@ void processFile(char *filename) {
 		// gets full directory path to put new files in
 		sprintf(fullDirPath, "%s%s", directoryName2, str);
 			
-		FILE* fptr = fopen(fullDirPath, "w+"); 
+		FILE* fptr = fopen(fullDirPath, "w+");
+		////    permissions for directory
+    	if(chmod(fullDirpath, 640) == -1) {
+    		printf("There was an error changing permissions");
+	} 
 		
 		// loop to make year text files
 		for(kr = 0; kr<movieCount; kr++) {
