@@ -252,7 +252,6 @@ void processFile(char *filename) {
 }
 
 
-
 /*
 * Finds the largest file and automatically processes it
 */
@@ -358,6 +357,7 @@ void findFile() {
       
    	} else {
     	printf("%s was not found. Try again", userChoice);
+    	listChoicesTwo();
     }
 
 }
