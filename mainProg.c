@@ -268,10 +268,6 @@ void processFile(char *filename) {
 			} 
 	fclose(fptr);		 	
 	}
-	int gr;
-	for(gr = 0; gr<movieCount; gr++) {
-		printf("%s\n", listYears[gr]); 
-	}
 	printf("Created directory with name %s\n", directoryName);
 }
 
