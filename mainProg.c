@@ -461,7 +461,7 @@ void optionActionsMain() {
     	printf("\n");
     	listChoicesTwo();
     //	printf("\n");
-    //	listChoicesMain();
+    	listChoicesMain();
 	}
 	else if(userChoice == 2) {
 		exit(0);
