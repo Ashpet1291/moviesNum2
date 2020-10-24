@@ -43,8 +43,6 @@ void listChoicesMain() {
 	char choiceOne[] = "1.";
 	char choiceTwo[] = "2.";
 	
-	
-	printf("\n");
 	printf("%s %s \n", choiceOne, "Select file to process");
 	printf("%s %s \n", choiceTwo, "Exit the program \n");
 	printf("%s", "Enter a choice 1 or 2: ");
@@ -325,7 +323,7 @@ void findSmallestFile() {
 	// Close the directory
 	closedir(currDir);
 //	printf("The largest file/directory starting with the prefix \"%s\" in the current directory is %s\n", PREFIX, entryName);
-	printf("Now processing the chosen file named for %s", entryName);
+	printf("Now processing the chosen file named for %s\n", entryName);
 	// process the biggest file
 	processFile(entryName);
 }
