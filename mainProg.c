@@ -243,7 +243,7 @@ void processFile(char *filename) {
 	int temp = 0;
 		
 	for(int k =0; k<sizeof(listYears);k++) {
-		printf("this is list years %s\n", listyears)
+		printf("this is list years %s\n", listYears[k])
 	}
 	// write year files in created directory	
 	for(g=0; g<tempMovieSize; g++)
