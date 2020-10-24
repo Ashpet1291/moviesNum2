@@ -248,7 +248,7 @@ void processFile(char *filename) {
 	fclose(fptr);
 		 	
  }
-	printf("Created directory with name %s\n", directoryName);
+	printf("Created directory with name %s", directoryName);
 }
 
 
@@ -343,7 +343,7 @@ void findFile() {
 	
 	
 	// tell user to input name of a file
-	printf("Please enter the name of a file\n ");
+	printf("Enter the complete file name: ");
 	
 	scanf("%s", userChoice);
 	
@@ -353,11 +353,11 @@ void findFile() {
    		
     	if (parseData(userChoice) != 0) 
       	printf("Now processing the chosen file named %s \n", userChoice);
-      	
+      	// process the file given by the user
       	processFile(userChoice);
       
    	} else {
-    	printf("file doesn't exist");
+    	printf("%s was not found. Try again", userChoice);
     }
 
 }
@@ -447,7 +447,7 @@ void optionActionsMain() {
 		// check if input is an integer, and is one of the options given, otherwise gives error message
 		if(scanf("%d", &userChoice) == 1) {
 			if(userChoice > 2) {
-        	printf("That is not an integer 1 or 2, please Enter a choice 1 or 2");
+        	printf("That is not an integer 1 or 2, please Enter a choice 1 or 2 \n");
         	listChoicesMain();
         	}
     	}		
