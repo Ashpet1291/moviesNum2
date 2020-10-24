@@ -270,7 +270,7 @@ void processFile(char *filename) {
 	}
 	
 	for(kr = 0; kr<movieCount; kr++) {
-		printf("%s\n", listYears[k]); 
+		printf("%s\n", listYears[kr]); 
 	}
 	printf("Created directory with name %s\n", directoryName);
 }
