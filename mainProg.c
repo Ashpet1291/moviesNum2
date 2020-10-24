@@ -47,7 +47,7 @@ void listChoicesMain() {
 	printf("\n");
 	printf("%s %s \n", choiceOne, "Select file to process");
 	printf("%s %s \n", choiceTwo, "Exit the program \n");
-	printf("%s \n", "Enter a choice 1 or 2: ");
+	printf("%s", "Enter a choice 1 or 2: ");
 }
 
 
@@ -384,9 +384,6 @@ void listChoicesTwo() {
 	
 	int userChoice;
 	
-	// loop to keep listing choices
-	while(userChoice != 8) 
-	{
 		// prints the choices for the second menu option
 		printf("Which file you want to process? \n");
 		printf("Enter 1 to pick the largest file \n");
@@ -435,7 +432,6 @@ void listChoicesTwo() {
 	else {
 		exit(0);
 	}
-	}
 }
 
 /*
@@ -464,8 +460,8 @@ void optionActionsMain() {
     if(userChoice == 1) {
     	printf("\n");
     	listChoicesTwo();
-    	printf("\n");
-    	listChoicesMain();
+    //	printf("\n");
+    //	listChoicesMain();
 	}
 	else if(userChoice == 2) {
 		exit(0);
