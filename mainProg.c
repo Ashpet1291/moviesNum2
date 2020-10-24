@@ -243,7 +243,7 @@ void processFile(char *filename) {
 	int temp = 0;
 		
 	for(int k =0; k<sizeof(listYears);k++) {
-		printf("this is list years %s\n", listYears[k]);
+		printf("this is list years %s\n", listyears)
 	}
 	// write year files in created directory	
 	for(g=0; g<tempMovieSize; g++)
@@ -260,7 +260,7 @@ void processFile(char *filename) {
     		printf("There was an error changing permissions");
 		} 
 		
-		while(temp < tempMovieSize) {
+	
 			// loop to make year text files
 			for(kr = 0; kr<movieCount; kr++) {
 			
@@ -272,8 +272,7 @@ void processFile(char *filename) {
 			if(fptr == NULL) { 
 				printf("Error creating file\n"); 
 			exit(-1); 
-			}
-		} 
+			} 
 	fclose(fptr);
 		 	
 	}
