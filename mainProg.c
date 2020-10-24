@@ -3,8 +3,8 @@
 // sources and inspirations
 // tutorialspoint for random number generator
 
-//*       gcc --std=gnu99 -o moviesb mainProg.c
-//*		./moviesb movies_sample_1.csv
+//*       gcc --std=gnu99 -o movies_by_year mainProg.c
+//*		./movies_by_year
 
 #include <stdio.h>
 #include <stdlib.h>
