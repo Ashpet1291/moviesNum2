@@ -231,13 +231,18 @@ void processFile(char *filename) {
     	if(chmod(fullDirPath, 0640) == -1) {
     		printf("There was an error changing permissions");
 		} 
-			// loop to make year text files
-			for(kr = 0; kr<movieCount; kr++) {
- 
- 			//	 fprintf(file, "this is a test %d\n", integer); // write to file 
-				// puts titles in files // puts titles in fptr file
-			//	fputs(titleList[kr], fptr);	
-				fprintf(fptr, "%s\n", titleList[kr]);		
+			int looper = 0;
+			int hold = 0
+			while(looper < tempMovieSize) {
+				// loop to make year text files
+				for(kr = 0; kr<movieCount; kr++) {
+  				
+  				if(newlistYears[kr] == listYears[hold])
+					// prints titles in files // puts titles in fptr file	
+					fprintf(fptr, "%s\n", titleList[kr]);
+					looper++;		
+				}
+				hold++;			
 			}
 			// print error message if can't create a new file
 			if(fptr == NULL) { 
