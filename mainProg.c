@@ -24,28 +24,14 @@
 int movieCount=0;
 
 
-
-
-char chosenYear;
-
 /*
-* Movie struct to hole movie data
+* Movie struct to hold movie data
 */
 struct movie {
 	char *title;
 	int year;
 	char *languages;
 	double ratingValue;
-	struct movie *next;
-};
-
-
-/*
-* Movie struct to hole movie data
-*/
-struct newMovie {
-	char *title;
-	int year;
 	struct movie *next;
 };
 
@@ -75,7 +61,7 @@ struct movie *createMovie(char *currLine)
 
     // For use with strtok_r
     char *saveptr;
- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////erase this and change to r
+ 
  
     // The first token is the title
     char *token = strtok_r(currLine, ",", &saveptr);
@@ -103,7 +89,7 @@ struct movie *createMovie(char *currLine)
 }
 
 /*
-* I used this code form the example that the instructor provided us
+* I used this code from the example that the instructor provided us
 * organizes the movie data in a linked list
 */
 struct movie *parseData(char *filePath)
@@ -157,11 +143,10 @@ struct movie *parseData(char *filePath)
 }
 
 
-//Parse data in the chosen file to find out the movies released in each year
-//In the new directory, create one file for each year in which at least one movie was released
 /*
+* process the chosen file
+* makes a new directory, prints 1 file for each year a movie was released, in the new directory
 * 
-*
 */
 void processFile(char *filename) {
 	
@@ -174,8 +159,7 @@ void processFile(char *filename) {
 	char titleList[movieCount][maxStringSize];
 	tempMovieSize = movieCount;	
 	
-	int newlistYears[movieCount];
-	
+	int newlistYears[movieCount];	
 	
 	int p;
 	// copy data in arrays to compare
@@ -187,10 +171,9 @@ void processFile(char *filename) {
 			strcpy(titleList[p], list->title);
 			list = list->next;
 		}		
-	}
+	}	
 	
-	
-	// variab;es for loops
+	// variables for loops
 	int i;
 	int j;
 	int k;
@@ -206,19 +189,16 @@ void processFile(char *filename) {
                 j--;
 			}
 		}		
-	}
-   
+	} 
     
     char directoryName[50];
     char directoryName2[50];
     int randNum;
-		
-	randNum = generateRandNum();
-		
-	sprintf(directoryName, "pettiboa.movies.%d", randNum);
-		
+	
+	// get random number for the directory name	
+	randNum = generateRandNum();		
+	sprintf(directoryName, "pettiboa.movies.%d", randNum);		
 	strcpy(directoryName2, directoryName);
-//	printf("this is dir2 %s\n", directoryName2);
 
 	// to check if the directory was correctly made	
 	int status;	
@@ -254,14 +234,11 @@ void processFile(char *filename) {
     	if(chmod(fullDirPath, 0640) == -1) {
     		printf("There was an error changing permissions");
 		} 
-		
-	
 			// loop to make year text files
 			for(kr = 0; kr<movieCount; kr++) {
 			
-			// puts titles in files // puts titles in fptr file
-				fputs(titleList[kr], fptr);
-			
+				// puts titles in files // puts titles in fptr file
+				fputs(titleList[kr], fptr);			
 			}
 			// print error message if can't create a new file
 			if(fptr == NULL) { 
@@ -277,8 +254,7 @@ void processFile(char *filename) {
 
 
 /*
-* lists second options and decides what to do based on users input
-*
+* Finds the largest file and automatically processes it
 */
 void findLargestFile() {
 	
@@ -290,15 +266,15 @@ void findLargestFile() {
     char entryName[256];
     int size =0;
     
-
     // while reading the current directory
     while((aDir = readdir(currDir)) != NULL){
     
     char *point = strstr(aDir->d_name, ENDING);
 	
+	// check if the file starts with "movies_" and also contains ".csv
     if((strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) && (point != NULL)) {
 
-        // If so, get directoryname for the current entry
+        // If so, get directory name for the current entry
         stat(aDir->d_name, &dirStat);  
           
         if(dirStat.st_size >= size)  {     	
@@ -317,7 +293,7 @@ void findLargestFile() {
 
 
 /*
-* finds the smallest file in the directory and processes it
+* finds the smallest file in the directory and automatically processes it
 */
 void findSmallestFile() {
 	
@@ -338,32 +314,27 @@ void findSmallestFile() {
 	 
     if((strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) && (point1 != NULL)) {
     	
-//    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
-//		{
-        // If so, get directoryname for the current entry
         stat(aDir->d_name, &dirStat);  
           
         if(dirStat.st_size < size)  {     	
          	size = dirStat.st_size;
         	strcpy(entryName, aDir->d_name);
         }
-     // 	}
 
   	}
-   }
+    }
 	// Close the directory
 	closedir(currDir);
 //	printf("The largest file/directory starting with the prefix \"%s\" in the current directory is %s\n", PREFIX, entryName);
 	printf("Now processing the chosen file named for %s", entryName);
 	printf("\n");
+	// process the biggest file
 	processFile(entryName);
-	
-
-//	char *point = strstr(aDir->d_name, ENDING);
 }
 
 /*
 * finds a file given by the user, and then processes it
+* returns and error if the file is not in the current directory
 */
 void findFile() {
 	
@@ -465,13 +436,11 @@ void listChoicesTwo() {
 		exit(0);
 	}
 	}
-//	printf("\n");
 }
 
 /*
 * To list the first 2 choices
-*  users have the option to selct a file to process, which leads them to another menu,
-*  or the can exit
+*  users have the option to selct a file to process, which leads them to another menu, or they can exit
 */
 void optionActionsMain() {
 	int userChoice;
@@ -509,9 +478,10 @@ void optionActionsMain() {
 
 
 /*
-* 
-*
-*/// main
+* Where it all starts!
+* starts by listing main options
+* from there, depending on what user enters, then an action will be made
+*/
 int main(void)
 {
 
