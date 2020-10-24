@@ -311,7 +311,7 @@ void findLargestFile() {
     
     char *point = strstr(aDir->d_name, ENDING);
 	
-    if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) && (point != NULL) {
+    if((strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) && (point != NULL)) {
 	
     	
 //    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
