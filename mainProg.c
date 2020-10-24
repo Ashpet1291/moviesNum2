@@ -237,13 +237,9 @@ void processFile(char *filename) {
 	int g;
 	int kr;
 	
-	//	char newDir[] = "/";
 	char line2[] = "/";
-//		strcat(newDir, directoryName2);
 	strcat(directoryName2, line2);
 		
-		
-	printf("%s \n", directoryName2);
 	char *str = malloc(10);
     char *string = malloc(10);
     char s1[] = ".txt";
@@ -304,8 +300,8 @@ void findLargestFile() {
 	
     if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) {
     	
-    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
-		{
+//    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
+//		{
         // If so, get directoryname for the current entry
         stat(aDir->d_name, &dirStat);  
           
@@ -316,7 +312,7 @@ void findLargestFile() {
      	}
 
   	}
-   }
+ //  }
 	// Close the directory
 	closedir(currDir);
 	printf("Now processing the chosen file named for %s \n", entryName);
