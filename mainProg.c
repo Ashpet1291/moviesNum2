@@ -213,15 +213,7 @@ void processFile(char *filename) {
 		}
 		
 	}
-	
-//	int g;
-	
-//	for(g=0; g<tempMovieSize; g++)
-//    {
-//        printf("%d\t", listYears[g]);
-//             
-//    } 
-    
+   
     
     char directoryName[50];
     char directoryName2[50];
@@ -263,14 +255,13 @@ void processFile(char *filename) {
 	for(g=0; g<tempMovieSize; g++)
     {    	    	
 		sprintf(str,"%d", listYears[g]);
-
 		strcat(str, s1);
 
 		// gets full directory path to put new files in
 		sprintf(fullDirPath, "%s%s", directoryName2, str);
-			
+		// create files
 		FILE* fptr = fopen(fullDirPath, "w+");
-		////    permissions for directory
+		//    permissions for directory
     	if(chmod(fullDirPath, 0640) == -1) {
     		printf("There was an error changing permissions");
 	} 
@@ -313,8 +304,8 @@ void findLargestFile() {
 	
     if(strncmp(PREFIX, aDir->d_name, strlen(PREFIX)) == 0) {
     	
-//    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
-//		{
+    	if(strncmp(ENDING, aDir->d_name, strlen(ENDING)) == 0)
+		{
         // If so, get directoryname for the current entry
         stat(aDir->d_name, &dirStat);  
           
@@ -322,7 +313,7 @@ void findLargestFile() {
          	size = dirStat.st_size;
         	strcpy(entryName, aDir->d_name);
         }
-     // 	}
+     	}
 
   	}
    }
