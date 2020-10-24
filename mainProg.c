@@ -353,7 +353,7 @@ void findFile() {
       	processFile(userChoice);
       
    	} else {
-    	printf("%s was not found. Try again \n", userChoice);
+    	printf("%s was not found. Try again \n\n", userChoice);
     	
     // couldn't figure out how to call this function in here, after the error, so just listed all of the second menu options		
 	int userChoice;
