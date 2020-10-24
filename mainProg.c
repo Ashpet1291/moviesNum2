@@ -271,7 +271,7 @@ void processFile(char *filename) {
 			
 		FILE* fptr = fopen(fullDirPath, "w+");
 		////    permissions for directory
-    	if(chmod(fullDirpath, 640) == -1) {
+    	if(chmod(fullDirPath, 640) == -1) {
     		printf("There was an error changing permissions");
 	} 
 		
